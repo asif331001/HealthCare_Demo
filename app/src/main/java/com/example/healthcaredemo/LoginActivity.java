@@ -46,7 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userLogin();
+                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                //userLogin();
             }
         });
 
@@ -59,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void userLogin() {
+  /*  private void userLogin() {
         String email = edEmail.getText().toString().trim();
         String password = edPassword.getText().toString().trim();
 
@@ -106,5 +109,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 }

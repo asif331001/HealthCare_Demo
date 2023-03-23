@@ -40,7 +40,6 @@ public class HomeActivity extends AppCompatActivity {
                         editor.apply();
                         FirebaseAuth.getInstance().signOut();
                         finish();
-                        startActivity(new Intent(HomeActivity.this,LoginActivity.class));
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -52,6 +51,14 @@ public class HomeActivity extends AppCompatActivity {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
+            }
+        });
+
+        CardView findDoctor = findViewById(R.id.cardFindDoctorId);
+        findDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,FindDoctorActivity.class));
             }
         });
     }
