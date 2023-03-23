@@ -1,5 +1,6 @@
 package com.example.healthcaredemo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,8 +9,15 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -17,10 +25,16 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnSignUp;
     TextView tvSignInHere;
 
+    ProgressBar signUpProgressbar;
+
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        mAuth = FirebaseAuth.getInstance();
 
         edSignUpName = findViewById(R.id.editTextSignUpName);
         edSignUpEmail = findViewById(R.id.editTextSignUpEmail);
@@ -28,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         edSignUpPassword = findViewById(R.id.editTextSignUpPassword);
         btnSignUp = findViewById(R.id.SignUpButtonId);
         tvSignInHere = findViewById(R.id.signInHereTextViewId);
+        signUpProgressbar = findViewById(R.id.signUpProgressBarId);
 
 
         tvSignInHere.setOnClickListener(new View.OnClickListener() {
@@ -59,9 +74,26 @@ public class RegisterActivity extends AppCompatActivity {
 
                         if (SignUpPassword.compareTo(SignUpConfirmPassword) == 0) {
                             if (isPasswordValid(SignUpPassword)) {
+                                signUpProgressbar.setVisibility(View.VISIBLE);
+                                mAuth.createUserWithEmailAndPassword(SignUpEmail, SignUpPassword)
+                                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                                                } else {
+                                                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                                        signUpProgressbar.setVisibility(View.GONE);
+                                                        Toast.makeText(getApplicationContext(), "This Email is Already Registered", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        signUpProgressbar.setVisibility(View.GONE);
+                                                        Toast.makeText(getApplicationContext(), "Error, Try Again", Toast.LENGTH_SHORT).show();
+                                                    }
 
-                                Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                                                }
+                                            }
+                                        });
 
                             } else {
                                 edSignUpPassword.setError("Password Must Contain Minimum  8 Character,1 letter, 1 Digit & 1 Symbol");

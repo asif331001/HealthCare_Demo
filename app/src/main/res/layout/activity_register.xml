@@ -152,4 +152,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSignUpName" />
 
+    <ProgressBar
+        android:id="@+id/signUpProgressBarId"
+        android:layout_width="41dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:indeterminateTint="@color/black"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmSignUpPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
