@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dd_bg"
-    tools:context=".DoctorsDetailsActivity">
+    tools:context=".LabTestActivity">
 
     <TextView
         android:id="@+id/ldHeadLineTextView"
@@ -25,28 +25,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Default Text"
         android:fontFamily="serif"
+        android:text="Delivery Location: Dhaka"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ldHeadLineTextView" />
 
+    <TextView
+        android:id="@+id/ldTestPackageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="serif"
+        android:text="Lab Test and Packages"
+        android:textColor="#FFF9C4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ltldDeliveryLocationTextView" />
+
     <ListView
-        android:background="#B3E5FC"
-        android:divider="@color/white"
-        android:dividerHeight="2dp"
         android:id="@+id/ltListViewLabTest"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="480dp"
         android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
+        android:divider="@color/white"
+        android:dividerHeight="2dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ltldDeliveryLocationTextView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ldTestPackageTextView" />
+
+    <Button
+        android:id="@+id/ldButtonCartId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Go to Cart"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ltListViewLabTest" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

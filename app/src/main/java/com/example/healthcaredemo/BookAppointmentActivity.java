@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -72,6 +73,13 @@ public class BookAppointmentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timePickerDialog.show();
+            }
+        });
+
+        bookNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"Information is Saved", Toast.LENGTH_SHORT).show();
             }
         });
     }

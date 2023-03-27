@@ -1,7 +1,6 @@
 package com.example.healthcaredemo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 
 public class DoctorsDetailsActivity extends AppCompatActivity {
 
@@ -98,7 +96,7 @@ public class DoctorsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors_details);
 
-        ddTitleTextView = findViewById(R.id.ddTitleTextView);
+        ddTitleTextView = findViewById(R.id.ltldDeliveryLocationTextView);
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
         ddTitleTextView.setText(title);
@@ -140,7 +138,7 @@ public class DoctorsDetailsActivity extends AppCompatActivity {
 
             sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1","line2","line3","line4","line5"},
                     new int[]{R.id.lineAId, R.id.lineBId, R.id.lineCId, R.id.lineDId, R.id.lineEId});
-        ListView lst = findViewById(R.id.listViewDoctorDetailsId);
+        ListView lst = findViewById(R.id.ltListViewLabTest);
         lst.setAdapter(sa);
 
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
