@@ -37,7 +37,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         appFeesEd = findViewById(R.id.editTextAppFees);
         dateButton = findViewById(R.id.buttonAppDate);
         timeButton = findViewById(R.id.buttonAppTime);
-        bookNowButton = findViewById(R.id.bookAppointmentButton)
+        bookNowButton = findViewById(R.id.bookAppointmentButton);
 
         appNameEd.setKeyListener(null);
         appAddressEd.setKeyListener(null);
