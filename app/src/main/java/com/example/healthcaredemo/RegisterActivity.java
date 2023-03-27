@@ -36,11 +36,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        edSignUpName = findViewById(R.id.editTextSignUpName);
-        edSignUpEmail = findViewById(R.id.editTextSignUpEmail);
-        edSignUpConfirmPassword = findViewById(R.id.editTextConfirmSignUpPassword);
-        edSignUpPassword = findViewById(R.id.editTextSignUpPassword);
-        btnSignUp = findViewById(R.id.SignUpButtonId);
+        edSignUpName = findViewById(R.id.editTextAppFullName);
+        edSignUpEmail = findViewById(R.id.editTextAppAddressId);
+        edSignUpConfirmPassword = findViewById(R.id.editTextAppFees);
+        edSignUpPassword = findViewById(R.id.editTextAppNumber);
+        btnSignUp = findViewById(R.id.BookAppointmentButton);
         tvSignInHere = findViewById(R.id.signInHereTextViewId);
         signUpProgressbar = findViewById(R.id.signUpProgressBarId);
 

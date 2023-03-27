@@ -37,10 +37,10 @@
 
     <ListView
         android:background="#B3E5FC"
-        android:divider="@color/black"
+        android:divider="@color/white"
         android:dividerHeight="2dp"
         android:id="@+id/listViewDoctorDetailsId"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
