@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,8 +54,8 @@ public class LabTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test);
-        goToCartButton = findViewById(R.id.ldButtonCartId);
-        testListView = findViewById(R.id.ltListViewLabTest);
+        goToCartButton = findViewById(R.id.ButtonBMDCartId);
+        testListView = findViewById(R.id.ListViewBMLabTest);
 
         list = new ArrayList();
         for (int i = 0;i<packages.length; i++){
@@ -81,6 +82,14 @@ public class LabTestActivity extends AppCompatActivity {
                 it.putExtra("text2", package_details[i]);
                 it.putExtra("text3", packages[i][4]);
                 startActivity(it);
+            }
+        });
+
+        goToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Information is Stored", Toast.LENGTH_SHORT).show();
             }
         });
     }

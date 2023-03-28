@@ -7,7 +7,7 @@
     android:background="@drawable/back2"
     tools:context=".LabTestDetailsActivity">
     <TextView
-        android:id="@+id/ldHeadLineTextView"
+        android:id="@+id/HeadLineBMTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -19,56 +19,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/ltldDeliveryLocationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="serif"
-        android:text="Delivery Location: Dhaka"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ldHeadLineTextView" />
 
     <TextView
-        android:id="@+id/ldTestPackageTextView"
+        android:id="@+id/labTestLDTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="serif"
         android:text="Lab Test and Packages"
         android:textColor="#FFF9C4"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ltldDeliveryLocationTextView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/HeadLineBMTextView" />
 
     <Button
-        android:id="@+id/ldButtonCartId"
+        android:id="@+id/ButtonLDCartId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="#FFFFFF"
-        android:text="Go to Cart"
+        android:text="Add to Cart"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ldTotalCostTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/totalCostLDTextView" />
 
     <EditText
         android:editable="false"
-        android:background="#3DA7FF"
+        android:background="#64B9FF"
         android:gravity="start|top"
-        android:id="@+id/ldEditTextMultilineText"
+        android:id="@+id/editTextLDMultilineText"
         android:layout_margin="20dp"
         android:padding="10dp"
         android:layout_width="match_parent"
@@ -81,10 +65,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ldTestPackageTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/labTestLDTextView" />
 
     <TextView
-        android:id="@+id/ldTotalCostTextView"
+        android:id="@+id/totalCostLDTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -95,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ldEditTextMultilineText" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextLDMultilineText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

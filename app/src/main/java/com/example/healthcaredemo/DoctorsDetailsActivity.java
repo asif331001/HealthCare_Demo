@@ -96,7 +96,7 @@ public class DoctorsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors_details);
 
-        ddTitleTextView = findViewById(R.id.ltldDeliveryLocationTextView);
+        ddTitleTextView = findViewById(R.id.ltldDeliveryLocationBMTextView);
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
         ddTitleTextView.setText(title);
@@ -138,7 +138,7 @@ public class DoctorsDetailsActivity extends AppCompatActivity {
 
             sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1","line2","line3","line4","line5"},
                     new int[]{R.id.lineAId, R.id.lineBId, R.id.lineCId, R.id.lineDId, R.id.lineEId});
-        ListView lst = findViewById(R.id.ltListViewLabTest);
+        ListView lst = findViewById(R.id.ListViewBMLabTest);
         lst.setAdapter(sa);
 
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
