@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dd_bg"
+    android:background="@drawable/medicine_bg"
     tools:context=".LabTestActivity">
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_marginTop="32dp"
         android:fontFamily="serif"
         android:text="Lab Test and Packages"
-        android:textColor="#FFF9C4"
+        android:textColor="#0026FF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/HeadLineBMTextView" />
 
     <ListView
-        android:id="@+id/ListViewBMLabTest"
+        android:id="@+id/ListViewOrderDetails"
         android:layout_width="match_parent"
         android:layout_height="480dp"
         android:layout_margin="20dp"
@@ -58,6 +58,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListViewBMLabTest" />
+        app:layout_constraintTop_toBottomOf="@+id/ListViewOrderDetails" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

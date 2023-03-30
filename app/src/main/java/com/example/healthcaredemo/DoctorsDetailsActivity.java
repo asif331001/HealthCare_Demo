@@ -138,7 +138,7 @@ public class DoctorsDetailsActivity extends AppCompatActivity {
 
             sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1","line2","line3","line4","line5"},
                     new int[]{R.id.lineAId, R.id.lineBId, R.id.lineCId, R.id.lineDId, R.id.lineEId});
-        ListView lst = findViewById(R.id.ListViewBMLabTest);
+        ListView lst = findViewById(R.id.ListViewOrderDetails);
         lst.setAdapter(sa);
 
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {

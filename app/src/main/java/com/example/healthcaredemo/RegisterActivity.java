@@ -57,15 +57,16 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String SignUpName = edSignUpName.getText().toString().trim();
-                String SignUpEmail = edSignUpEmail.getText().toString().trim();
+                String email = edSignUpEmail.getText().toString().trim();
                 String SignUpPassword = edSignUpPassword.getText().toString().trim();
                 String SignUpConfirmPassword = edSignUpConfirmPassword.getText().toString().trim();
+                Database db = new Database(getApplicationContext(), "healthCare", null, 1);
 
-                if (SignUpName.isEmpty() || SignUpEmail.isEmpty() || SignUpPassword.isEmpty() || SignUpConfirmPassword.isEmpty()) {
+                if (SignUpName.isEmpty() || email.isEmpty() || SignUpPassword.isEmpty() || SignUpConfirmPassword.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please Enter All Data", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    if (!Patterns.EMAIL_ADDRESS.matcher(SignUpEmail).matches()) {
+                    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                         edSignUpEmail.setError("Enter a valid email address");
                         edSignUpEmail.requestFocus();
                         return;
@@ -75,11 +76,12 @@ public class RegisterActivity extends AppCompatActivity {
                         if (SignUpPassword.compareTo(SignUpConfirmPassword) == 0) {
                             if (isPasswordValid(SignUpPassword)) {
                                 signUpProgressbar.setVisibility(View.VISIBLE);
-                                mAuth.createUserWithEmailAndPassword(SignUpEmail, SignUpPassword)
+                                mAuth.createUserWithEmailAndPassword(email, SignUpPassword)
                                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
+                                                    db.register(email);
                                                     Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
                                                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                                 } else {

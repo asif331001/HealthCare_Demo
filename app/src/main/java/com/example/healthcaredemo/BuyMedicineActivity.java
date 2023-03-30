@@ -17,16 +17,16 @@ import java.util.HashMap;
 public class BuyMedicineActivity extends AppCompatActivity {
 
    private String[][] packages = {
-            {"Uprise-03 1000IU Capsule", "", "", "", "$50"},
-            {"Lyrical Tablet", "", "", "", "$20"},
-            {"Omez Capsule", "", "", "", "$15"},
-            {"Cetirizine Tablet", "", "", "", "$10"},
-            {"Crocin Tablet", "", "", "", "$5"},
-            {"Metformin Tablet", "", "", "", "$25"},
-            {"Azithromycin Tablet", "", "", "", "$30"},
-            {"Paracetamol Suspension", "", "", "", "$8"},
-            {"Sodium Chloride IV Infusion", "", "", "", "$40"},
-            {"Atorvastatin Tablet", "", "", "", "$22"}
+            {"Uprise-03 1000IU Capsule", "", "", "", "50"},
+            {"Lyrical Tablet", "", "", "", "20"},
+            {"Omez Capsule", "", "", "", "15"},
+            {"Cetirizine Tablet", "", "", "", "10"},
+            {"Crocin Tablet", "", "", "", "5"},
+            {"Metformin Tablet", "", "", "", "25"},
+            {"Azithromycin Tablet", "", "", "", "30"},
+            {"Paracetamol Suspension", "", "", "", "8"},
+            {"Sodium Chloride IV Infusion", "", "", "", "40"},
+            {"Atorvastatin Tablet", "", "", "", "22"}
     };
 
    private String[] package_details = {
@@ -52,7 +52,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_medicine);
 
-        lstBM = findViewById(R.id.ListViewBMLabTest);
+        lstBM = findViewById(R.id.ListViewOrderDetails);
         btnGoToCart = findViewById(R.id.ButtonBMDCartId);
 
         btnGoToCart.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
             item.put("line2", packages[i][1]);
             item.put("line3", packages[i][2]);
             item.put("line4", packages[i][3]);
-            item.put("line5", "Price: "+ packages[i][4]+"/-");
+            item.put("line5", "Price: $"+ packages[i][4]+"/-");
             list.add(item);
         }
 

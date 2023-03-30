@@ -50,7 +50,7 @@
 
     <EditText
         android:editable="false"
-        android:background="#64B9FF"
+        android:background="@drawable/details_bg"
         android:gravity="start|top"
         android:id="@+id/editTextLDMultilineText"
         android:layout_margin="20dp"

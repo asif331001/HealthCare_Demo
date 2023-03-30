@@ -11,15 +11,14 @@
         android:id="@+id/selectTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
         android:text="Select Time:"
         android:textColor="#FFF9C4"
-        app:layout_constraintBottom_toTopOf="@+id/BookAppointmentButton"
+        app:layout_constraintBottom_toTopOf="@+id/bookAppointmentButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.732"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/selectDateTextView"
         app:layout_constraintTop_toBottomOf="@+id/editTextAppFees"
-        app:layout_constraintVertical_bias="0.848" />
+        app:layout_constraintVertical_bias="0.264" />
 
     <TextView
         android:id="@+id/textView"
@@ -169,15 +168,14 @@
         android:id="@+id/selectDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
         android:text="Select Date:"
         android:textColor="#FFF9C4"
-        app:layout_constraintBottom_toTopOf="@+id/BookAppointmentButton"
+        app:layout_constraintBottom_toTopOf="@+id/bookAppointmentButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAppFees"
-        app:layout_constraintVertical_bias="0.848" />
+        app:layout_constraintVertical_bias="0.264" />
 
     <Button
         android:id="@+id/buttonAppDate"
@@ -198,7 +196,7 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:backgroundTint="@color/white"
         android:text="hh:mm"
         app:layout_constraintEnd_toEndOf="parent"

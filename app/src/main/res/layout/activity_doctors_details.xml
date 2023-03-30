@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dd_bg"
+    android:background="@drawable/medicine_bg"
     tools:context=".DoctorsDetailsActivity">
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_marginTop="12dp"
         android:text="Default Text"
         android:fontFamily="serif"
-        android:textColor="@color/white"
+        android:textColor="#0026FF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:background="#B3E5FC"
         android:divider="@color/white"
         android:dividerHeight="2dp"
-        android:id="@+id/ListViewBMLabTest"
+        android:id="@+id/ListViewOrderDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

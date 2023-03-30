@@ -82,5 +82,14 @@ CardView healthArticle = findViewById(R.id.cardHealthArticleId);
                 startActivity(new Intent(HomeActivity.this,HealthArticleActivity.class));
             }
         });
+
+ CardView orderDetails = findViewById(R.id.cardOrderDetailsId);
+        healthArticle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,OrderDetailsActivity.class));
+            }
+        });
+
     }
 }

@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +16,11 @@ import java.util.HashMap;
 public class LabTestActivity extends AppCompatActivity {
 
     private String[][] packages = {
-            {"Package 1: Full Body Checkup", "", "", "", " $950"},
-            {"Package 2: Blood Glucose Fasting", "", "", "", " $300"},
-            {"Package 3: COVID-19 Antibody", "", "", "", " $500"},
-            {"Package 4: Thyroid Check", "", "", "", " $800"},
-            {"Package 5: Immunity Check", "", "", "", ": $400"}
+            {"Package 1: Full Body Checkup", "", "", "", "950"},
+            {"Package 2: Blood Glucose Fasting", "", "", "", "300"},
+            {"Package 3: COVID-19 Antibody", "", "", "", "500"},
+            {"Package 4: Thyroid Check", "", "", "", "800"},
+            {"Package 5: Immunity Check", "", "", "", "400"}
     };
 
    private String[] package_details = {
@@ -55,7 +54,7 @@ public class LabTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test);
         goToCartButton = findViewById(R.id.ButtonBMDCartId);
-        testListView = findViewById(R.id.ListViewBMLabTest);
+        testListView = findViewById(R.id.ListViewOrderDetails);
 
         list = new ArrayList();
         for (int i = 0;i<packages.length; i++){
@@ -64,7 +63,7 @@ public class LabTestActivity extends AppCompatActivity {
             item.put("line2", packages[i][1]);
             item.put("line3", packages[i][2]);
             item.put("line4", packages[i][3]);
-            item.put("line5", "Total Cost:"+ packages[i][4]+"/-");
+            item.put("line5", "Total Cost: $"+ packages[i][4]+"/-");
             list.add(item);
         }
 
@@ -88,8 +87,8 @@ public class LabTestActivity extends AppCompatActivity {
         goToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Information is Stored", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LabTestActivity.this, CartLabActivity.class);
+                startActivity(intent);
             }
         });
     }
