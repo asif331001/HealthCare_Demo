@@ -84,12 +84,32 @@ CardView healthArticle = findViewById(R.id.cardHealthArticleId);
         });
 
  CardView orderDetails = findViewById(R.id.cardOrderDetailsId);
-        healthArticle.setOnClickListener(new View.OnClickListener() {
+        orderDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,OrderDetailsActivity.class));
+                startActivity(new Intent(HomeActivity.this,CartLabActivity.class));
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

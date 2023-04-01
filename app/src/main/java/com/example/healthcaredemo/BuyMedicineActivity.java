@@ -58,7 +58,8 @@ public class BuyMedicineActivity extends AppCompatActivity {
         btnGoToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Information is Stored", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(BuyMedicineActivity.this, CartLabActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -89,5 +90,10 @@ public class BuyMedicineActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(BuyMedicineActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }

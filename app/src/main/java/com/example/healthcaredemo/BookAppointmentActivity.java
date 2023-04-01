@@ -119,4 +119,9 @@ public class BookAppointmentActivity extends AppCompatActivity {
         int style = AlertDialog.THEME_HOLO_DARK;
         timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,min,true);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(BookAppointmentActivity.this, FindDoctorActivity.class);
+        startActivity(intent);
+    }
 }

@@ -16,14 +16,12 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class CartLabActivity extends AppCompatActivity {
-
+public class CartMedicineActivity extends AppCompatActivity {
     HashMap<String, String> item;
     ArrayList list;
     SimpleAdapter sa;
@@ -34,18 +32,17 @@ public class CartLabActivity extends AppCompatActivity {
     private Button dateButton, timeButton, btnCheckout;
 
     private  String [] [] packages = {};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart_lab);
+        setContentView(R.layout.activity_cart_medicine);
 
-        tvTotal = findViewById(R.id.totalCostId);
-        tvCart = findViewById(R.id.cartPackageId);
+        tvTotal = findViewById(R.id.totalCostBMDTextView);
+        tvCart = findViewById(R.id.cartBMDPackageId);
         dateButton = findViewById(R.id.buttonAppCartDate);
         timeButton = findViewById(R.id.buttonAppCartTime);
-        btnCheckout = findViewById(R.id.checkoutButtonId);
-        lst = findViewById(R.id.cartListviewId);
+        btnCheckout = findViewById(R.id.checkoutBMDButtonId);
+        lst = findViewById(R.id.cartBMDListviewId);
 
         SharedPreferences sharedPreferences = getSharedPreferences("share", Context.MODE_PRIVATE);
         String email = sharedPreferences.getString("email", "").toString();
@@ -53,7 +50,7 @@ public class CartLabActivity extends AppCompatActivity {
         Database db = new Database(getApplicationContext(), "healthcare", null, 1);
 
         float totalAmount = 0;
-        ArrayList dbData = db.getCartData(email, "lab");
+        ArrayList dbData = db.getCartData(email, "medicine");
 
         packages = new String[dbData.size()][];
         for (int i = 0; i<packages.length; i++){
@@ -105,12 +102,12 @@ public class CartLabActivity extends AppCompatActivity {
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(CartLabActivity.this,LabTestBookActivity.class);
+                Intent it = new Intent(CartMedicineActivity.this,LabTestBookActivity.class);
                 it.putExtra("price", tvTotal.getText());
                 it.putExtra("date", dateButton.getText());
                 it.putExtra("time", timeButton.getText());
                 startActivity(it);
-             }
+            }
         });
 
     }
@@ -149,10 +146,5 @@ public class CartLabActivity extends AppCompatActivity {
 
         int style = AlertDialog.THEME_HOLO_DARK;
         timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,min,true);
-    }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(CartLabActivity.this, HomeActivity.class);
-        startActivity(intent);
     }
 }

@@ -66,8 +66,8 @@
             android:orientation="vertical"
             >
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/family_physicians"
                 android:layout_marginBottom="10dp"/>
@@ -105,8 +105,8 @@
             android:orientation="vertical"
             >
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/dietician"
                 android:layout_marginBottom="10dp"/>
@@ -144,8 +144,8 @@
             android:orientation="vertical"
             >
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/dentist"
                 android:layout_marginBottom="10dp"/>
@@ -183,8 +183,8 @@
             android:orientation="vertical"
             >
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/surgeon"
                 android:layout_marginBottom="10dp"/>
@@ -222,8 +222,8 @@
             android:orientation="vertical"
             >
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/cardiologists"
                 android:layout_marginBottom="10dp"/>
@@ -261,8 +261,8 @@
             android:orientation="vertical"
             >
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/medicinedoctor"
                 android:layout_marginBottom="10dp"/>

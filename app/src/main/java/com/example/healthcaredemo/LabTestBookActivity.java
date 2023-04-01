@@ -52,4 +52,9 @@ public class LabTestBookActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LabTestBookActivity.this, HomeActivity.class);
+        startActivity(intent);
+    }
 }

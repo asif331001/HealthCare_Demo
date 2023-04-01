@@ -57,4 +57,9 @@ public class LabTestDetailsActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LabTestDetailsActivity.this, LabTestActivity.class);
+        startActivity(intent);
+    }
 }

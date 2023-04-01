@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/HeadLineBMTextView" />
 
     <ListView
-        android:id="@+id/ListViewOrderDetails"
+        android:id="@+id/listViewOrderDetails"
         android:layout_width="match_parent"
         android:layout_height="480dp"
         android:layout_margin="20dp"

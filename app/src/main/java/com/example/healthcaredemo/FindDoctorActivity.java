@@ -69,4 +69,9 @@ public class FindDoctorActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(FindDoctorActivity.this, HomeActivity.class);
+        startActivity(intent);
+    }
 }
