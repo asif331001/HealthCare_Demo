@@ -59,6 +59,32 @@ sqLiteDatabase.execSQL(qry3);
         db.close();
         return result;
     }
+    public void removeCart(String email){
+        String str[] = new String[2];
+        str[0] = email;
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("cart","email = ?", str);
+        db.close();
+    }
+
+    public ArrayList getCartData(String email){
+
+        ArrayList<String> arr = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String str[] = new String[1];
+        str[0] = email;
+        Cursor c = db.rawQuery("select * from cart where email = ?", str);
+        if (c.moveToFirst()){
+            do {
+                String product = c.getString(1);
+                String price = c.getString(2);
+                arr.add(product+"$"+price);
+            } while (c.moveToNext());
+        }
+        db.close();
+        return arr;
+    }
 
 
     public  void addOrder(String email, String fullname, String address, String contactno, String date, String time, float price){
@@ -93,32 +119,5 @@ sqLiteDatabase.execSQL(qry3);
         db.close();
         return arr;
     }
-    public ArrayList getCartData(String email){
-
-        ArrayList<String> arr = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-        String str[] = new String[1];
-        str[0] = email;
-        Cursor c = db.rawQuery("select * from cart where email = ?", str);
-        if (c.moveToFirst()){
-            do {
-                String product = c.getString(1);
-                String price = c.getString(2);
-                arr.add(product+"$"+price);
-            } while (c.moveToNext());
-        }
-        db.close();
-        return arr;
-    }
-
-    public void removeCart(String email){
-        String str[] = new String[2];
-        str[0] = email;
-
-        SQLiteDatabase db = getWritableDatabase();
-        db.delete("cart","email = ?", str);
-        db.close();
-    }
-
 
 }
