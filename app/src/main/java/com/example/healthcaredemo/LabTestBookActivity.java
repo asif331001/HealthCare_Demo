@@ -54,7 +54,7 @@ public class LabTestBookActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(LabTestBookActivity.this, HomeActivity.class);
+        Intent intent = new Intent(LabTestBookActivity.this, CartLabActivity.class);
         startActivity(intent);
     }
 }

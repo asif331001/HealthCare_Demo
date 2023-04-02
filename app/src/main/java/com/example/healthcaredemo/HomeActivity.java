@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -38,8 +39,13 @@ public class HomeActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.clear();
                         editor.apply();
-                        FirebaseAuth.getInstance().signOut();
-                        finish();
+
+                            FirebaseAuth.getInstance().signOut();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                finishAffinity();
+                            } else {
+                                finish();
+                            }
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -99,8 +105,13 @@ CardView healthArticle = findViewById(R.id.cardHealthArticleId);
         builder.setCancelable(false);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
+            public void onClick(DialogInterface dialogInterface, int i)  {
+                FirebaseAuth.getInstance().signOut();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    finishAffinity();
+                } else {
+                    finish();
+                }
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
