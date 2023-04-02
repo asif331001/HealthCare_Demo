@@ -50,10 +50,10 @@ public class CartLabActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("share", Context.MODE_PRIVATE);
         String email = sharedPreferences.getString("email", "").toString();
 
-        Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+        Database db = new Database(getApplicationContext(), "healthCare", null, 3);
 
         float totalAmount = 0;
-        ArrayList dbData = db.getCartData(email, "lab");
+        ArrayList dbData = db.getCartData(email);
 
         packages = new String[dbData.size()][];
         for (int i = 0; i<packages.length; i++){

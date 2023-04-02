@@ -93,7 +93,8 @@ CardView healthArticle = findViewById(R.id.cardHealthArticleId);
         orderDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,CartLabActivity.class));
+               // startActivity(new Intent(HomeActivity.this,CartLabActivity.class));
+                startActivity(new Intent(HomeActivity.this,OrderDetailsActivity.class));
             }
         });
 

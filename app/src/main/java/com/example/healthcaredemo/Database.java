@@ -19,9 +19,9 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 String qry1 = "create table users(email text)";
 sqLiteDatabase.execSQL(qry1);
-String qry2 = "create table cart(email text, product text, price float, otype text)";
+String qry2 = "create table cart(email text, product text, price float)";
 sqLiteDatabase.execSQL(qry2);
-String qry3 = "create table orderplace(email text, fullname text, address text, contactno text, date text, time text, amount float, otype)";
+String qry3 = "create table orderplace(email text, fullname text, address text, contactno text, date text, time text, amount float)";
 sqLiteDatabase.execSQL(qry3);
 
     }
@@ -37,12 +37,11 @@ sqLiteDatabase.execSQL(qry3);
         db.insert("users", null, cv);
         db.close();
     }
-    public void addCart(String email, String product, float price, String otype){
+    public void addCart(String email, String product, float price){
         ContentValues cv = new ContentValues();
         cv.put("email", email);
         cv.put("product", product);
         cv.put("price", price);
-        cv.put("otype", otype);
         SQLiteDatabase db = getWritableDatabase();
         db.insert("cart", null, cv);
         db.close();
@@ -61,34 +60,8 @@ sqLiteDatabase.execSQL(qry3);
         return result;
     }
 
-    public void removeCart(String email, String otype){
-        String str[] = new String[2];
-        str[0] = email;
-        str[1] = otype;
-        SQLiteDatabase db = getWritableDatabase();
-        db.delete("cart","email = ? and otype = ?", str);
-        db.close();
-    }
-    public ArrayList getCartData(String email, String otype){
 
-        ArrayList<String> arr = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-        String str[] = new String[2];
-        str[0] = email;
-        str[1] = otype;
-        Cursor c = db.rawQuery("select * from cart where email = ? and otype = ?", str);
-        if (c.moveToFirst()){
-            do {
-                String product = c.getString(1);
-                String price = c.getString(2);
-                arr.add(product+"$"+price);
-            } while (c.moveToNext());
-        }
-        db.close();
-        return arr;
-    }
-
-    public  void addOrder(String email, String fullname, String address, String contactno, String date, String time, float price, String otype){
+    public  void addOrder(String email, String fullname, String address, String contactno, String date, String time, float price){
 
         ContentValues cv = new ContentValues();
         cv.put("email", email);
@@ -98,7 +71,6 @@ sqLiteDatabase.execSQL(qry3);
         cv.put("date", date);
         cv.put("time", time);
         cv.put("price", price);
-        cv.put("otype", otype);
         SQLiteDatabase db = getWritableDatabase();
         db.insert("orderplace", null, cv);
         db.close();
@@ -121,4 +93,32 @@ sqLiteDatabase.execSQL(qry3);
         db.close();
         return arr;
     }
+    public ArrayList getCartData(String email){
+
+        ArrayList<String> arr = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String str[] = new String[1];
+        str[0] = email;
+        Cursor c = db.rawQuery("select * from cart where email = ?", str);
+        if (c.moveToFirst()){
+            do {
+                String product = c.getString(1);
+                String price = c.getString(2);
+                arr.add(product+"$"+price);
+            } while (c.moveToNext());
+        }
+        db.close();
+        return arr;
+    }
+
+    public void removeCart(String email){
+        String str[] = new String[2];
+        str[0] = email;
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("cart","email = ?", str);
+        db.close();
+    }
+
+
 }

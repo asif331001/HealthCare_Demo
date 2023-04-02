@@ -30,7 +30,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("share", Context.MODE_PRIVATE);
         String email = sharedPreferences.getString("email", "").toString();
 
-        Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+        Database db = new Database(getApplicationContext(), "healthCare", null, 3);
 
         ArrayList dbData = db.getOrderData(email);
 
@@ -41,13 +41,12 @@ public class OrderDetailsActivity extends AppCompatActivity {
             String[] strData = arrData.split(java.util.regex.Pattern.quote("$"));
             order_details[i][0] = strData[0];
             order_details[i][1] = strData[1];
-            if (strData[7].compareTo("medicine")==0){
+            if (strData[7].compareTo("lab")==0){
                 order_details[i][3] = "Del: "+strData[4];
             }else {
                 order_details[i][3] = "Del: "+strData[4] + " "+ strData[5];
             }
             order_details[i][2] = "Tk."+strData[6];
-            order_details[i][4] = strData[7];
             }
         list = new ArrayList();
         for (int i = 0; i<order_details.length; i++){

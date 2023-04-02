@@ -38,13 +38,13 @@ public class LabTestBookActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("share", Context.MODE_PRIVATE);
                 String email = sharedPreferences.getString("email", "").toString();
 
-                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+                Database db = new Database(getApplicationContext(), "healthCare", null, 3);
 
                 db.addOrder(edFullName.getText().toString(), email,
                         edAddress.getText().toString(),edPhnNumber.getText().toString(),
                         date.toString(),time.toString(),
-                        Float.parseFloat(price[1].toString()),"lab");
-                db.removeCart(email, "lab");
+                        Float.parseFloat(price[1].toString()));
+                db.removeCart(email);
 
                 Toast.makeText(getApplicationContext(),"Your Order is done Successfully", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(LabTestBookActivity.this,HomeActivity.class));

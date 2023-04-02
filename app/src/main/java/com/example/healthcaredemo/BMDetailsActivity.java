@@ -47,12 +47,12 @@ public class BMDetailsActivity extends AppCompatActivity {
                 String product = tvBMDPackageName.getText().toString();
                 float price = Float.parseFloat(intent.getStringExtra("text3").toString());
 
-                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+                Database db = new Database(getApplicationContext(), "healthCare", null, 3);
 
                 if (db.checkCart(email, product) == 1){
                     Toast.makeText(getApplicationContext(), "Product Already Added", Toast.LENGTH_SHORT).show();
                 } else {
-                    db.addCart(email, product, price, "lab");
+                    db.addCart(email, product, price);
                     Toast.makeText(getApplicationContext(), "Record Inserted to Cart", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(BMDetailsActivity.this,BuyMedicineActivity.class));
                 }
